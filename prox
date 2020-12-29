@@ -99,6 +99,20 @@ rhel7 ()	{
 	firew2
 }
 
+rhel7nike ()	{
+	# Installing necessary packages (Squid, httpd-tools for htpasswd and dependencies)
+	yum install squid httpd-tools -y
+	htpasswd -b -c /etc/squid/passwd pr0x137y pr0x137y
+	# Downloading Squid configuration 
+	wget -O /etc/squid/squid.conf https://pastebin.com/raw/hs0LpNxP --no-check-certificate
+	# Creating empty blacklist.acl file for further blacklisting entries
+	wget -O /etc/squid/blacklist.acl https://pastebin.com/raw/HUKdAnzu --no-check-certificate
+	# Restarting Squid and enabling its service
+	systemctl restart squid.service && systemctl enable squid.service
+	# Running function firew2
+	firew2
+}
+
 # Function for Debian "Squeeze" 6 and Debian "Wheezy" 7
 deb ()	{
 	# Updating package database
@@ -221,6 +235,8 @@ case $1 in
 		rhel6;; # RHEL 6 Linux distributions such as Red Hat 6, CentOS 6 and et cetera
 	'-rhel7') # If option "-rhel7" run function rhel7
 		rhel7;;	# RHEL 7 Linux distributions such as Red Hat 7, CentOS 7 and et cetera
+	'-rhel7nike') # If option "-rhel7" run function rhel7
+		rhel7nike;;	# RHEL 7 Linux distributions such as Red Hat 7, CentOS 7 and et cetera
 	'-debian') # If option "-debian" run fuction deb
 		deb;; # Debian "Squeeze" 6 and Debian "Wheezy" 7
 	'-jessie') # If option "-jessie" run function deb8
