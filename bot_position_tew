@@ -1,0 +1,19 @@
+/* Plik: custom-styles.css */
+
+/* Style dla ekranów o szerokości większej niż 767px (komputery) */
+@media screen and (min-width: 768px) {
+  .vfrc-widget--launcher {
+    position: fixed;
+    right: 15px;
+    bottom: 80px;
+  }
+}
+
+/* Style dla ekranów o szerokości mniejszej lub równej 767px (urządzenia mobilne) */
+@media screen and (max-width: 767px) {
+  .vfrc-widget--launcher {
+    position: fixed;
+    right: 15px;
+    bottom: 120px; /* 80px + 40px = 120px */
+  }
+}
