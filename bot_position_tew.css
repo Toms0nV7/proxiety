@@ -1,17 +1,21 @@
+/* Plik: bot_position_tew.css */
+
+/* Style dla ekranów o szerokości większej niż 767px (komputery) */
 @media screen and (min-width: 768px) {
     .vfrc-widget--launcher {
         position: fixed;
-        left: 300px; /* Przesunięcie z prawej na lewą */
-        bottom: 800px;
-        right: auto; /* Dodane aby usunąć prawy offset */
+        left: 50px; /* Przesunięcie na lewą stronę */
+        bottom: 50px; /* Możliwe dostosowanie położenia od dołu, dla przykładu */
+        right: auto; /* Ustawienia prawej strony na auto */
     }
 }
 
+/* Style dla ekranów o szerokości mniejszej lub równej 767px (urządzenia mobilne) */
 @media screen and (max-width: 767px) {
     .vfrc-widget--launcher {
         position: fixed;
-        left: 15px; /* Przesunięcie z prawej na lewą */
-        bottom: 120px;
-        right: auto; /* Dodane aby usunąć prawy offset */
+        left: 15px; /* Przesunięcie na lewą stronę */
+        bottom: 120px; /* Dostosowane położenie od dołu */
+        right: auto; /* Ustawienia prawej strony na auto */
     }
 }
